@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1237 Hollmig Ln Acquisition Package</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: #fffdf8;
+      --ink: #1f2329;
+      --muted: #5f6773;
+      --line: #d9d0bf;
+      --line-strong: #b7aa92;
+      --accent: #0b4f6c;
+      --accent-soft: #dcecf3;
+      --pass: #7b1e1e;
+      --pass-soft: #f6dddd;
+      --warn: #7c5a13;
+      --warn-soft: #f6ecd2;
+      --ok: #1d5c3f;
+      --ok-soft: #dff0e7;
+      --shadow: 0 18px 40px rgba(30, 28, 24, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: linear-gradient(180deg, #f4efe4 0%, #ece4d5 100%);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      line-height: 1.55;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(11, 79, 108, 0.08), transparent 34%),
+        radial-gradient(circle at top right, rgba(123, 30, 30, 0.06), transparent 30%),
+        linear-gradient(180deg, #f4efe4 0%, #ece4d5 100%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 28px auto 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(140deg, rgba(255, 253, 248, 0.98), rgba(247, 242, 232, 0.94));
+      border: 1px solid rgba(183, 170, 146, 0.55);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px 34px 28px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(11, 79, 108, 0.05), transparent 45%),
+        linear-gradient(310deg, rgba(123, 30, 30, 0.05), transparent 42%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(11, 79, 108, 0.1);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      max-width: 760px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.9fr;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      margin-top: 14px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .badge-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .decision-badge,
+    .conditional-badge {
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      border: 1px solid transparent;
+    }
+
+    .decision-badge {
+      background: linear-gradient(180deg, #8f2a2a 0%, #6d1616 100%);
+      color: #fff8f5;
+      border-color: rgba(109, 22, 22, 0.55);
+    }
+
+    .conditional-badge {
+      background: linear-gradient(180deg, #f6ecd2 0%, #f3e5c2 100%);
+      color: #4c3710;
+      border-color: rgba(124, 90, 19, 0.2);
+    }
+
+    .badge-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: 0.9;
+      font-weight: 700;
+    }
+
+    .badge-value {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .badge-note {
+      margin-top: 8px;
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .hero-metrics {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric {
+      background: rgba(255, 253, 248, 0.76);
+      border: 1px solid rgba(183, 170, 146, 0.5);
+      border-radius: var(--radius-sm);
+      padding: 16px 16px 14px;
+    }
+
+    .metric-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .framework {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .section {
+      background: rgba(255, 253, 248, 0.92);
+      border: 1px solid rgba(183, 170, 146, 0.55);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      line-height: 1.1;
+    }
+
+    .section-summary {
+      color: var(--muted);
+      max-width: 580px;
+      font-size: 0.96rem;
+    }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .columns-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(217, 208, 191, 0.95);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .callout {
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid transparent;
+      margin-top: 18px;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .callout p {
+      margin: 0;
+    }
+
+    .callout-evidence {
+      background: var(--accent-soft);
+      border-color: rgba(11, 79, 108, 0.18);
+    }
+
+    .callout-assumption {
+      background: var(--warn-soft);
+      border-color: rgba(124, 90, 19, 0.18);
+    }
+
+    .callout-caveat {
+      background: var(--pass-soft);
+      border-color: rgba(123, 30, 30, 0.16);
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--ink);
+    }
+
+    .list li + li {
+      margin-top: 8px;
+    }
+
+    .list.tight li + li {
+      margin-top: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: var(--paper);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 12px 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(217, 208, 191, 0.85);
+    }
+
+    thead th {
+      background: #efe6d7;
+      color: var(--ink);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(217, 208, 191, 0.9);
+      border-radius: 18px;
+      background: var(--paper);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(183, 170, 146, 0.65);
+      background: rgba(255, 253, 248, 0.9);
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .note-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .note {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(245, 241, 232, 0.8);
+      border: 1px solid rgba(217, 208, 191, 0.85);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .footnote {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .recommendation-panel {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .final-box {
+      background: linear-gradient(180deg, #fffdfa 0%, #f7f0e6 100%);
+      border: 1px solid rgba(183, 170, 146, 0.8);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .final-decision {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--pass-soft);
+      border: 1px solid rgba(123, 30, 30, 0.16);
+      color: var(--pass);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .final-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .final-text {
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .footer {
+      margin: 20px 4px 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .recommendation-panel,
+      .columns-2,
+      .columns-3,
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Acquisition Package</span>
+          <h1>1237 Hollmig Ln, Fredericksburg, TX 78624</h1>
+          <p class="hero-subtitle">
+            Investor-facing acquisition memo built strictly from the research brief. The current list-level basis does not support wholesale, long-term rental, or clean flip execution; the only investable lane is a diligence-heavy STR/hybrid path at a materially lower basis.
+          </p>
+        </div>
+        <div class="badge-stack">
+          <div class="decision-badge">
+            <span class="badge-label">Current Recommendation</span>
+            <span class="badge-value">PASS at Current Ask</span>
+            <div class="badge-note">
+              Current ask: <strong>$525,000</strong>. Recommendation applies across wholesale, LTR hold, and list-basis flip scenarios.
+            </div>
+          </div>
+          <div class="conditional-badge">
+            <span class="badge-label">Only Re-Open If</span>
+            <span class="badge-value">Conditional Pursue</span>
+            <div class="badge-note">
+              Only if STR legality for both the main house and guest suite is verified and the seller will transact at a materially lower basis.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric">
+          <span class="metric-label">List Price</span>
+          <span class="metric-value">$525,000</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Configuration</span>
+          <span class="metric-value">3 Bed / 2 Bath</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Living Area</span>
+          <span class="metric-value">2,659 sf</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Lot Size</span>
+          <span class="metric-value">3.5 acres</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">CAD 2025 Value</span>
+          <span class="metric-value">$421,650</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="framework">
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">01 / Subject Overview</div>
+            <h2 class="section-title">Property Snapshot</h2>
+          </div>
+          <div class="section-summary">
+            Core subject facts and listing-level positioning. These items are presented as factual extracts from the brief.
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <h3>Subject Facts</h3>
+            <div class="table-wrap">
+              <table>
+                <tbody>
+                  <tr><td>Address</td><td>1237 Hollmig Ln, Fredericksburg, TX 78624</td></tr>
+                  <tr><td>MLS</td><td>104279</td></tr>
+                  <tr><td>Status</td><td>Active</td></tr>
+                  <tr><td>List Price</td><td>$525,000</td></tr>
+                  <tr><td>Beds / Baths</td><td>3 / 2</td></tr>
+                  <tr><td>Living Area</td><td>2,659 sf</td></tr>
+                  <tr><td>Lot Size</td><td>3.5 acres</td></tr>
+                  <tr><td>Reported Year Built</td><td>1941</td></tr>
+                  <tr><td>DOM Proxy</td><td>4 days on website (RE/MAX)</td></tr>
+                  <tr><td>Listing Office</td><td>Century 21 the Hills Realty, Bryan Smith</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Listing Description Highlights</h3>
+            <ul class="list">
+              <li>Minutes from Main Street in Fredericksburg.</li>
+              <li>Llano flagstone rock home with original wood floors, fireplace, fresh paint, and front porch.</li>
+              <li>3.5 acres in the ETJ.</li>
+              <li>Fully updated guest suite in 2018 with living room, kitchen, bathroom, and bedroom.</li>
+              <li>Insulated workshop with window unit and 40-foot sea container for storage.</li>
+              <li>Approximate proximity markers: 1.9 miles from hospital and 1.6 miles to high school.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">ETJ location</span>
+          <span class="pill">Guest suite called out in listing</span>
+          <span class="pill">Acreage-residential setup</span>
+          <span class="pill">Fredericksburg hospitality adjacency</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">02 / Public Evidence</div>
+            <h2 class="section-title">Source-Backed Evidence Base</h2>
+          </div>
+          <div class="section-summary">
+            The memo relies on listing and public-record support. Evidence quality weakens where public portal access was blocked.
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <h3>RE/MAX Listing Extract</h3>
+            <ul class="list tight">
+              <li>URL documented in the research brief.</li>
+              <li>Confirms $525,000 ask, 3 bed / 2 bath, 2,659 sf, built in 1941.</li>
+              <li>Confirms $197/sf, 3.5 acre lot, and 4 days on website.</li>
+              <li>Confirms the listing description details used in this package.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Gillespie CAD Extract</h3>
+            <ul class="list tight">
+              <li>Situs shown as 1237 HOLLMIG LN OFF BILLIE DR, TX.</li>
+              <li>Legal shown as Vineyard Estates Lot 9, 3.502 acres, homesite.</li>
+              <li>Neighborhood shown as South of City, Near City.</li>
+              <li>2025 market value / appraised / assessed value: $421,650.</li>
+              <li>2025 estimated taxes: about $4,413.31.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout-caveat">
+          <strong>Data Caveat</strong>
+          <p>
+            Zillow was blocked by bot detection. Realtor, Redfin, and Coldwell Banker were partially blocked. Same-street public comps were recoverable mainly from snippets rather than clean sold pages. CAD and listing data should be reconciled with title, MLS, and GIS before making an offer.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">03 / Records Timeline</div>
+            <h2 class="section-title">Listing and Public Record Chronology</h2>
+          </div>
+          <div class="section-summary">
+            The available timeline is sufficient for basic orientation, but not a substitute for title or MLS file review.
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <h3>Deed History</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Recorded Instrument</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>7/2/2018</td><td>Special Warranty Deed</td></tr>
+                  <tr><td>6/11/2001</td><td>Warranty Deed Vendors Lien</td></tr>
+                  <tr><td>3/31/1994</td><td>Warranty Deed Vendors Lien</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Roll Value History</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Year</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>2025</td><td>$421,650</td></tr>
+                  <tr><td>2024</td><td>$440,000</td></tr>
+                  <tr><td>2023</td><td>$440,000</td></tr>
+                  <tr><td>2022</td><td>$394,500</td></tr>
+                  <tr><td>2021</td><td>$321,750</td></tr>
+                  <tr><td>2020</td><td>$273,000</td></tr>
+                  <tr><td>2019</td><td>$273,000</td></tr>
+                  <tr><td>2018</td><td>$248,740</td></tr>
+                  <tr><td>2017</td><td>$232,830</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">04 / Comp Hierarchy</div>
+            <h2 class="section-title">Comparable Evidence Ladder</h2>
+          </div>
+          <div class="section-summary">
+            Same-street relevance exists, but the public comp set is incomplete and the sold-price layer is materially under-verified.
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Property</th>
+                <th>Public Read-Through</th>
+                <th>Why It Matters</th>
+                <th>Limitation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>1304 Hollmig Ln</td>
+                <td>Active at $2,250,000 on ~11.77 acres with 12 modern container cabins operating as an STR business.</td>
+                <td>Strong same-street evidence that Hollmig Ln can support hospitality-oriented demand.</td>
+                <td>Product is far more commercialized than the subject.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>1149 Hollmig Ln</td>
+                <td>Snippet indicates 3/2, 1,496 sf, built 2013, ~2.9 acres, farmhouse setting, guest house.</td>
+                <td>Same-street acreage-residential relevance.</td>
+                <td>Public sold price inaccessible.</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1153 Hollmig Ln</td>
+                <td>Off market, 1 bath, 1,910 sf, built 2016, ~2.56 acres.</td>
+                <td>Useful locational support for same-street acreage product.</td>
+                <td>Limited public details and no sold-price support.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>1035 Hollmig Ln</td>
+                <td>Off market, built 1983.</td>
+                <td>Locational support only.</td>
+                <td>Very limited public detail.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-grid">
+          <div class="note">
+            <strong>Neighborhood Bucket</strong>
+            CAD places the subject in Vineyard Estates, but public-accessible data was sparse for additional Vineyard Estates sold comps.
+          </div>
+          <div class="note">
+            <strong>1-Mile / 5-Mile Search Problem</strong>
+            Clean sold comps were not reliably accessible from public portals due to anti-bot blocks, rural inventory sparsity, and the prevalence of off-market records.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">05 / Market Revenue Context</div>
+            <h2 class="section-title">LTR and STR Revenue Evidence</h2>
+          </div>
+          <div class="section-summary">
+            Public rental cards provide a practical LTR ask band. STR proxies point to a viable ADR range only if the property can legally support the intended use.
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <h3>Fredericksburg LTR Proxies</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Address</th>
+                    <th>Configuration</th>
+                    <th>Ask Rent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>510 S Olive St</td><td>3/2, 1,335 sf</td><td>$2,950/mo</td></tr>
+                  <tr><td>107 Crestwood Dr</td><td>3/2, 1,346 sf</td><td>$1,900/mo</td></tr>
+                  <tr><td>717 Darlington Dr</td><td>3/2</td><td>$2,300/mo</td></tr>
+                  <tr><td>718 Shumard Ln</td><td>3/2, 1,960 sf</td><td>$2,750/mo</td></tr>
+                  <tr><td>404 W Nimitz St</td><td>3/2, 1,682 sf</td><td>$2,850/mo</td></tr>
+                  <tr><td>210 Dudley Way</td><td>3/2, 2,297 sf</td><td>$3,000/mo</td></tr>
+                  <tr><td>612 W Hackberry St</td><td>3/2, 1,953 sf</td><td>$3,000/mo</td></tr>
+                  <tr><td>207 Skylark Dr</td><td>3/2, 1,440 sf</td><td>$1,900/mo</td></tr>
+                  <tr><td>201 Bending Oaks Trl</td><td>3/2, 1,901 sf</td><td>$2,950/mo</td></tr>
+                  <tr><td>1009 Avenue D</td><td>3/2, 1,765 sf</td><td>$3,400/mo</td></tr>
+                  <tr><td>611 N Adams St</td><td>3/2, 1,600 sf</td><td>$2,500/mo</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="footnote">
+              Interpretation from the brief: standard 3/2 Fredericksburg LTR ask band is roughly $1,900 to $3,400 per month, with a practical central band around the mid-$2k to low-$3k range.
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Public STR ADR Proxies</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Use Type</th>
+                    <th>Example Rate</th>
+                    <th>Brief Interpretation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Whole-home 2BR</td><td>$571 / 5 nights (~$114/night)</td><td>Low-end public whole-home example.</td></tr>
+                  <tr><td>Whole-home 3BR</td><td>$915 / 5 nights (~$183/night)</td><td>Fits the conservative non-luxury band.</td></tr>
+                  <tr><td>Whole-home 3BR retreat</td><td>$1,742 / 5 nights (~$348/night)</td><td>Higher-performing outlier with stronger positioning.</td></tr>
+                  <tr><td>Walk-to-Main 3BR</td><td>$1,131 / 5 nights (~$226/night)</td><td>Upper end of conservative band.</td></tr>
+                  <tr><td>Guest-suite-style 1BR</td><td>$450 to $602 / 5 nights (~$90 to $120/night)</td><td>Supports the guest-suite ADR band used in the brief.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="footnote">
+              Interpretation from the brief: conservative non-luxury 3BR STR ADR band is roughly $175 to $225 per night; guest-suite ADR band is roughly $90 to $120 per night.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">06 / Financing Plans</div>
+            <h2 class="section-title">Underwriting Assumptions and Purchase Cases</h2>
+          </div>
+          <div class="section-summary">
+            The financing section intentionally distinguishes assumptions from computed scenario outputs already contained in the brief.
+          </div>
+        </div>
+
+        <div class="columns-3">
+          <div class="card">
+            <h3>DSCR Purchase Assumptions</h3>
+            <ul class="list tight">
+              <li>75% LTV</li>
+              <li>8.0% interest</li>
+              <li>30-year amortization</li>
+              <li>2 points origination</li>
+              <li>3% closing costs</li>
+              <li>Taxes: $4,413.31/year from Gillespie CAD</li>
+              <li>Insurance placeholder: $3,150/year</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Hard Money Assumptions</h3>
+            <ul class="list tight">
+              <li>90% purchase financing</li>
+              <li>12% interest-only</li>
+              <li>2 points</li>
+              <li>3% closing costs</li>
+              <li>6-month hold for flip / bridge scenarios</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Assumption Boundary</h3>
+            <p>
+              These are package assumptions from the brief, not verified market quotes or loan terms. They are suitable for directional underwriting only.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top: 18px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Loan / Carry</th>
+                <th>Cash Requirement</th>
+                <th>Monthly Debt Service</th>
+                <th>Read-Through</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DSCR at $525,000</td>
+                <td>$393,750 loan</td>
+                <td>$154,875 cash to close</td>
+                <td>$3,519.47 monthly PITI</td>
+                <td>Current ask sets a heavy debt-service burden.</td>
+              </tr>
+              <tr>
+                <td>DSCR at $475,000</td>
+                <td>Assumptions per brief</td>
+                <td>$140,125 cash to close</td>
+                <td>$3,244.31 monthly PITI</td>
+                <td>Improves basis but remains tight relative to LTR evidence.</td>
+              </tr>
+              <tr>
+                <td>DSCR at $425,000</td>
+                <td>Assumptions per brief</td>
+                <td>$125,375 cash to close</td>
+                <td>$2,969.15 monthly PITI</td>
+                <td>Lower basis begins to open a viable STR/hybrid lane.</td>
+              </tr>
+              <tr>
+                <td>Hard money at $525,000 + $60,000 rehab</td>
+                <td>$4,725 monthly interest-only</td>
+                <td>$137,700 initial cash including rehab</td>
+                <td>$28,350 six-month interest carry</td>
+                <td>Total cash before sale costs: $166,050.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-assumption">
+          <strong>Assumption Discipline</strong>
+          <p>
+            Insurance and financing terms above are placeholders or package assumptions. The strategy recommendation should not be upgraded without borrower-specific terms and verified property-operating constraints.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">07 / Strategy Comparison</div>
+            <h2 class="section-title">Execution Lanes at the Current Ask</h2>
+          </div>
+          <div class="section-summary">
+            This matrix converts the brief’s underwriting results into a strategy-level view. The conclusions remain conservative because evidence quality is not clean enough to support an aggressive basis.
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>What the Brief Says</th>
+                <th>Basis Sensitivity</th>
+                <th>Decision</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wholesale</td>
+                <td>Current ask is not a wholesale deal. If ARV is only $525,000, wholesale MAO is about $287,500; if ARV is $560,000, about $312,000; if ARV is $600,000, about $340,000.</td>
+                <td>Requires a basis far below list.</td>
+                <td><strong>Pass</strong></td>
+              </tr>
+              <tr>
+                <td>Fix &amp; Flip</td>
+                <td>Using $60,000 rehab, 8% sale costs, and a $30,000 profit target, max flip buy is about $393,000 at $525,000 ARV, about $425,200 at $560,000 ARV, and about $462,000 at $600,000 ARV.</td>
+                <td>Not safe at list unless resale value is materially higher and rehab is very light.</td>
+                <td><strong>Pass</strong></td>
+              </tr>
+              <tr>
+                <td>Long-Term Rental Hold</td>
+                <td>At $525,000 purchase, DSCR ranges roughly 0.47 to 0.57 using $2,800 to $3,200 rents. At $475,000 it ranges 0.51 to 0.62. At $425,000 it ranges 0.56 to 0.67.</td>
+                <td>Pure LTR does not support DSCR debt at any modeled purchase point.</td>
+                <td><strong>Pass</strong></td>
+              </tr>
+              <tr>
+                <td>STR / Hybrid Hold</td>
+                <td>Combined main-house plus guest-suite STR cases range about 0.59 to 1.02 at $525,000, 0.64 to 1.10 at $475,000, and 0.69 to 1.21 at $425,000.</td>
+                <td>Only works if guest suite is legally rentable, operating performance lands near the upper end of public ADR evidence, and basis is negotiated down.</td>
+                <td><strong>Conditional Pursue</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-evidence">
+          <strong>Decision Logic</strong>
+          <p>
+            The brief explicitly concludes that pure LTR does not support DSCR debt and that current ask is not a wholesale deal. STR/hybrid is the only lane that reaches plausibility, and only under better basis plus legality confirmation.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">08 / Risks and Caveats</div>
+            <h2 class="section-title">What Can Break the Thesis</h2>
+          </div>
+          <div class="section-summary">
+            This deal cannot be upgraded on narrative alone. The unresolved items are structural, not cosmetic.
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <h3>Primary Risk Set</h3>
+            <ul class="list">
+              <li>Portal blocking prevented a clean, public sold-comp package for same-street, neighborhood, and broader radius support.</li>
+              <li>The STR case depends on legality in the ETJ / county for both the main house and the guest suite.</li>
+              <li>Separate-rental viability of the guest suite is not verified by the brief.</li>
+              <li>Septic, parking, and utility capacity for dual-accommodation use are unverified.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Reconciliation Items</h3>
+            <ul class="list">
+              <li>Title, GIS, MLS, and CAD should be reconciled before any offer decision.</li>
+              <li>Property identity and improvement set need confirmation against the listing narrative.</li>
+              <li>Neighborhood-bucket evidence was limited by rural inventory sparsity and portal access issues.</li>
+              <li>Loan terms and insurance are modeled assumptions, not lender-issued confirmations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout-caveat">
+          <strong>Important Caveat</strong>
+          <p>
+            This package is intentionally data-first and conservative. Where support is inferential, it is labeled as such. No recommendation here should be read as a substitute for verified county, title, lender, septic, parking, utility, or STR-permit diligence.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">09 / Final Recommendation</div>
+            <h2 class="section-title">Disposition Decision</h2>
+          </div>
+          <div class="section-summary">
+            The investment committee answer is straightforward at the current ask. Only one narrow path remains open, and it is contingent on diligence plus basis discipline.
+          </div>
+        </div>
+
+        <div class="recommendation-panel">
+          <div class="final-box">
+            <div class="final-decision">PASS at Current Ask</div>
+            <div class="final-title">Do not advance this asset at $525,000 as a wholesale, flip, or LTR acquisition.</div>
+            <p class="final-text">
+              The brief supports a clear pass at the current list price. Wholesale does not work, flip economics are not safe at list, and pure LTR debt coverage fails across the modeled purchase points.
+            </p>
+            <p class="final-text">
+              The only potential re-entry path is a hybrid STR thesis that assumes both the main house and the guest suite can be rented legally and functionally. Even then, the package conclusion requires a materially lower basis, ideally into the low-to-mid $400s depending on diligence findings.
+            </p>
+          </div>
+
+          <div class="final-box">
+            <div class="final-decision" style="background: var(--warn-soft); color: #6d5318;">Conditional Pursue Only If</div>
+            <ul class="list">
+              <li>STR legality is confirmed in the ETJ / county for both the main house and the guest suite.</li>
+              <li>Separate-rental viability of the guest suite is confirmed.</li>
+              <li>Septic, parking, and utility capacity support dual-accommodation use.</li>
+              <li>Title, GIS, MLS, and property-identity reconciliation are clean.</li>
+              <li>Seller will negotiate materially below list, ideally into the low-to-mid $400s depending on diligence findings.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      Prepared from the facts, assumptions, and recommendation direction contained in <code>research_brief.md</code>. No external data was added.
+    </div>
+  </main>
+</body>
+</html>
