@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Fredericksburg / Gillespie Acquisition Checklist</title>
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffdf8;
+      --ink: #1f2329;
+      --muted: #5f6773;
+      --line: #d9d0bf;
+      --line-strong: #b7aa92;
+      --accent: #0b4f6c;
+      --accent-soft: #dcecf3;
+      --warn: #7c5a13;
+      --warn-soft: #f6ecd2;
+      --risk: #7b1e1e;
+      --risk-soft: #f6dddd;
+      --ok: #1d5c3f;
+      --ok-soft: #dff0e7;
+      --shadow: 0 18px 40px rgba(30, 28, 24, 0.08);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: linear-gradient(180deg, #f4efe4 0%, #ece4d5 100%);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      line-height: 1.6;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(11, 79, 108, 0.08), transparent 34%),
+        radial-gradient(circle at top right, rgba(123, 30, 30, 0.06), transparent 30%),
+        linear-gradient(180deg, #f4efe4 0%, #ece4d5 100%);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 28px auto 56px;
+    }
+
+    .hero,
+    .section {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 253, 248, 0.94);
+      border: 1px solid rgba(183, 170, 146, 0.58);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 34px 34px 30px;
+      background: linear-gradient(145deg, rgba(255, 253, 248, 0.98), rgba(246, 241, 231, 0.94));
+    }
+
+    .hero::before,
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, rgba(11, 79, 108, 0.05), transparent 46%),
+        linear-gradient(315deg, rgba(123, 30, 30, 0.04), transparent 44%);
+    }
+
+    .hero-content,
+    .section-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow,
+    .audience {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      background: rgba(11, 79, 108, 0.1);
+      color: var(--accent);
+    }
+
+    .audience {
+      background: rgba(29, 92, 63, 0.08);
+      color: var(--ok);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 4vw, 3.8rem);
+      line-height: 1.02;
+      max-width: 780px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1.08;
+    }
+
+    h3 {
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hero-subtitle {
+      margin-top: 16px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .highlight-card,
+    .metric,
+    .card,
+    .path-card,
+    .tree-step,
+    .source-card,
+    .workflow-item,
+    .ladder-item {
+      background: var(--paper);
+      border: 1px solid rgba(217, 208, 191, 0.95);
+      border-radius: 18px;
+    }
+
+    .highlight-card {
+      padding: 18px 20px;
+    }
+
+    .highlight-card.primary {
+      background: linear-gradient(180deg, #133f57 0%, #0b4f6c 100%);
+      color: #f7fbfd;
+      border-color: rgba(11, 79, 108, 0.5);
+    }
+
+    .highlight-card.secondary {
+      background: linear-gradient(180deg, #f6ecd2 0%, #f3e5c2 100%);
+      color: #4c3710;
+      border-color: rgba(124, 90, 19, 0.22);
+    }
+
+    .highlight-card.tertiary {
+      background: linear-gradient(180deg, #f6dddd 0%, #f3d2d2 100%);
+      color: #5c1717;
+      border-color: rgba(123, 30, 30, 0.18);
+    }
+
+    .highlight-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      opacity: 0.92;
+    }
+
+    .highlight-value {
+      display: block;
+      font-size: 1.28rem;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .highlight-note {
+      font-size: 0.94rem;
+      line-height: 1.48;
+    }
+
+    .hero-metrics {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 16px 16px 14px;
+      background: rgba(255, 253, 248, 0.8);
+    }
+
+    .metric-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 1.06rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .framework {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .section {
+      padding: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-summary {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 0.96rem;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .path-card,
+    .tree-step,
+    .source-card,
+    .workflow-item,
+    .ladder-item {
+      padding: 18px;
+    }
+
+    .card p + p,
+    .path-card p + p {
+      margin-top: 10px;
+    }
+
+    .card-title {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .card-title.small-gap {
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .callout.info {
+      background: var(--accent-soft);
+      border-color: rgba(11, 79, 108, 0.16);
+    }
+
+    .callout.warn {
+      background: var(--warn-soft);
+      border-color: rgba(124, 90, 19, 0.18);
+    }
+
+    .callout.risk {
+      background: var(--risk-soft);
+      border-color: rgba(123, 30, 30, 0.16);
+    }
+
+    .checklist,
+    .source-list,
+    .plain-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li,
+    .plain-list li {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .checklist li + li,
+    .plain-list li + li,
+    .source-list li + li {
+      margin-top: 10px;
+    }
+
+    .checklist li::before,
+    .plain-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.45rem;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 5px;
+      border: 1px solid rgba(183, 170, 146, 0.8);
+      background: linear-gradient(180deg, #fffdf9 0%, #f3ecdf 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .plain-list li::before {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      top: 0.55rem;
+      left: 2px;
+      background: var(--accent);
+      border: 0;
+      box-shadow: none;
+    }
+
+    .tree-layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    .tree-step {
+      background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(245, 239, 227, 0.92));
+    }
+
+    .step-tag,
+    .path-tag,
+    .source-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step-tag {
+      background: rgba(11, 79, 108, 0.1);
+      color: var(--accent);
+    }
+
+    .path-tag.city {
+      background: rgba(11, 79, 108, 0.1);
+      color: var(--accent);
+    }
+
+    .path-tag.etj {
+      background: rgba(124, 90, 19, 0.14);
+      color: var(--warn);
+    }
+
+    .path-tag.county {
+      background: rgba(123, 30, 30, 0.1);
+      color: var(--risk);
+    }
+
+    .tree-arrow {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .path-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .path-card.city {
+      background: linear-gradient(180deg, rgba(220, 236, 243, 0.55), rgba(255, 253, 248, 0.9));
+    }
+
+    .path-card.etj {
+      background: linear-gradient(180deg, rgba(246, 236, 210, 0.65), rgba(255, 253, 248, 0.9));
+    }
+
+    .path-card.county {
+      background: linear-gradient(180deg, rgba(246, 221, 221, 0.58), rgba(255, 253, 248, 0.9));
+    }
+
+    .path-card h3 {
+      font-size: 1.05rem;
+    }
+
+    .path-card .outcome {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(183, 170, 146, 0.45);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .rule-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .rule-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(183, 170, 146, 0.65);
+      background: rgba(255, 253, 248, 0.9);
+      font-size: 0.88rem;
+    }
+
+    .ladder {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ladder-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(246, 241, 231, 0.9));
+    }
+
+    .ladder-rank {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #efe6d7;
+      border: 1px solid rgba(183, 170, 146, 0.75);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .workflow {
+      display: grid;
+      gap: 12px;
+    }
+
+    .workflow-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(247, 242, 232, 0.92));
+    }
+
+    .workflow-number {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #efe6d7;
+      border: 1px solid rgba(183, 170, 146, 0.75);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .source-card {
+      background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(247, 242, 232, 0.92));
+    }
+
+    .source-tag {
+      background: rgba(11, 79, 108, 0.08);
+      color: var(--accent);
+    }
+
+    .source-list a {
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .footer {
+      margin: 20px 4px 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .hero-metrics,
+      .grid-2,
+      .grid-3,
+      .decision-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .section {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-top">
+          <span class="eyebrow">Acquisition Checklist</span>
+          <span class="audience">Prepared for Warren</span>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <h1>Fredericksburg / Gillespie Acquisition Checklist</h1>
+            <p class="hero-subtitle">
+              Reusable baseline for future Fredericksburg and Gillespie County STR and hospitality-oriented acquisitions. The first gate is parcel classification because jurisdiction determines STR permit burden, inspection burden, who gets local HOT, operating constraints, and what site-development issues matter most.
+            </p>
+          </div>
+
+          <div class="hero-panel">
+            <div class="highlight-card primary">
+              <span class="highlight-label">City Limit Baseline</span>
+              <span class="highlight-value">Permit + Annual Inspection</span>
+              <p class="highlight-note">City limit = permit + annual inspection + city/state HOT.</p>
+            </div>
+
+            <div class="highlight-card secondary">
+              <span class="highlight-label">ETJ Baseline</span>
+              <span class="highlight-value">No City STR Permit Per Current Guidance</span>
+              <p class="highlight-note">ETJ = currently no city STR permit per city guidance, but still city/state HOT.</p>
+            </div>
+
+            <div class="highlight-card tertiary">
+              <span class="highlight-label">County-Only Baseline</span>
+              <span class="highlight-value">No Countywide STR Permit Page Found</span>
+              <p class="highlight-note">County outside city/ETJ = no countywide STR permit page found, but county/state HOT applies.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric">
+            <span class="metric-label">Jurisdiction Buckets</span>
+            <span class="metric-value">3</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Baseline HOT Total</span>
+            <span class="metric-value">13% Guest-Facing HOT</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Minimum Workflow</span>
+            <span class="metric-value">10 Steps</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Recommendation Output</span>
+            <span class="metric-value">Pass / Pursue / Offer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="framework">
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Executive Summary</div>
+              <h2>What Controls the Diligence Path</h2>
+            </div>
+            <p class="section-summary">
+              The checklist begins with jurisdiction. Once the parcel is classified as city limits, ETJ, or county-only, the operating path, tax burden, and physical diligence priorities follow from that classification.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <h3 class="card-title">Why Classification Matters</h3>
+              <ul class="plain-list">
+                <li>STR permit burden</li>
+                <li>inspection burden</li>
+                <li>who gets local HOT</li>
+                <li>operating constraints</li>
+                <li>what site-development issues matter most</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Current Baseline Conclusion</h3>
+              <ul class="plain-list">
+                <li>City limit = permit + annual inspection + city/state HOT</li>
+                <li>ETJ = currently no city STR permit per city guidance, but still city/state HOT</li>
+                <li>County outside city/ETJ = no countywide STR permit page found, but county/state HOT applies</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Minimum Workflow Result</h3>
+              <p class="muted">
+                Every new deal ends with a recommendation after parcel classification, HOT and permit verification, physical diligence, thesis testing, comp work, underwriting, financing review, and appraisal-risk review.
+              </p>
+              <div class="rule-pill-row">
+                <span class="rule-pill">Pass</span>
+                <span class="rule-pill">Pursue</span>
+                <span class="rule-pill">Offer</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Decision Tree 01</div>
+              <h2>Jurisdiction Classification</h2>
+            </div>
+            <p class="section-summary">
+              Confirm the parcel location first, then place it into one of the three operating buckets used throughout the checklist.
+            </p>
+          </div>
+
+          <div class="tree-layout">
+            <div class="grid-2">
+              <article class="tree-step">
+                <span class="step-tag">Step 1</span>
+                <h3 class="card-title">Where is the parcel?</h3>
+                <ul class="checklist">
+                  <li>Confirm exact parcel location using City Limit / 1-Mile ETJ map</li>
+                  <li>Confirm exact parcel location using CAD situs/legal</li>
+                  <li>Confirm exact parcel location using listing remarks</li>
+                  <li>Confirm exact parcel location using survey/title if needed</li>
+                </ul>
+              </article>
+
+              <article class="tree-step">
+                <span class="step-tag">Step 2</span>
+                <h3 class="card-title">Classify the parcel into one of 3 buckets</h3>
+                <ul class="plain-list">
+                  <li>Inside Fredericksburg city limits</li>
+                  <li>Inside Fredericksburg ETJ but outside city limits</li>
+                  <li>Unincorporated Gillespie County outside both city limits and ETJ</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="tree-arrow">Then follow the applicable operating and diligence branch</div>
+
+            <div class="decision-grid">
+              <article class="path-card city">
+                <span class="path-tag city">Bucket 1</span>
+                <h3>Inside Fredericksburg City Limits</h3>
+                <p>Use city-limit STR operating rules, city permit review, annual inspection review, and city/state HOT treatment.</p>
+                <p class="outcome">This bucket triggers the city-limit operating checklist.</p>
+              </article>
+
+              <article class="path-card etj">
+                <span class="path-tag etj">Bucket 2</span>
+                <h3>Inside Fredericksburg ETJ</h3>
+                <p>Still verify the parcel is truly ETJ and not city limits; site, utility, access, and use constraints become the main diligence focus.</p>
+                <p class="outcome">This bucket shifts diligence toward physical and county-level constraints.</p>
+              </article>
+
+              <article class="path-card county">
+                <span class="path-tag county">Bucket 3</span>
+                <h3>County Outside City + ETJ</h3>
+                <p>County-level constraints become the main diligence focus and local HOT shifts from city to county.</p>
+                <p class="outcome">This bucket centers ETJ/county physical diligence and county HOT treatment.</p>
+              </article>
+            </div>
+
+            <div class="callout info">
+              <strong>Why This Matters</strong>
+              <p>This classification determines STR permit burden, inspection burden, who gets local HOT, operating constraints, and what site-development issues matter most.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Decision Tree 02</div>
+              <h2>Permit and HOT Branches</h2>
+            </div>
+            <p class="section-summary">
+              After jurisdiction is classified, the checklist splits into permit and inspection treatment on one side and local HOT treatment on the other.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3 class="card-title">STR Permit / Inspection Decision Tree</h3>
+              <div class="decision-grid">
+                <div class="path-card city">
+                  <span class="path-tag city">City Limits</span>
+                  <ul class="plain-list">
+                    <li>STR permit required</li>
+                    <li>annual inspection required</li>
+                    <li>listing/advertising rules apply</li>
+                    <li>occupancy/parking/quiet-hours rules apply</li>
+                  </ul>
+                </div>
+
+                <div class="path-card etj">
+                  <span class="path-tag etj">ETJ</span>
+                  <ul class="plain-list">
+                    <li>current city guidance says no city STR permit required</li>
+                    <li>still verify parcel is truly ETJ and not city limits</li>
+                    <li>still owe Fredericksburg HOT + Texas HOT</li>
+                    <li>main diligence shifts to site/utility/access/use constraints</li>
+                  </ul>
+                </div>
+
+                <div class="path-card county">
+                  <span class="path-tag county">County-Only</span>
+                  <ul class="plain-list">
+                    <li>no countywide STR permit page found in official county research</li>
+                    <li>still owe Gillespie County HOT + Texas HOT</li>
+                    <li>county-level constraints become the main diligence focus</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">HOT Decision Tree</h3>
+              <div class="decision-grid">
+                <div class="path-card city">
+                  <span class="path-tag city">City Limits</span>
+                  <ul class="plain-list">
+                    <li>7% Fredericksburg HOT</li>
+                    <li>6% Texas HOT</li>
+                    <li>13% total guest-facing HOT</li>
+                    <li>quarterly filing with city</li>
+                  </ul>
+                </div>
+
+                <div class="path-card etj">
+                  <span class="path-tag etj">ETJ</span>
+                  <ul class="plain-list">
+                    <li>current city guidance says city HOT still applies in the ETJ</li>
+                    <li>7% Fredericksburg HOT</li>
+                    <li>6% Texas HOT</li>
+                    <li>13% total</li>
+                  </ul>
+                </div>
+
+                <div class="path-card county">
+                  <span class="path-tag county">County-Only</span>
+                  <ul class="plain-list">
+                    <li>7% Gillespie County HOT</li>
+                    <li>6% Texas HOT</li>
+                    <li>13% total</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout warn">
+                <strong>HOT Diligence Questions</strong>
+                <ul class="checklist">
+                  <li>Who currently remits HOT?</li>
+                  <li>Is the account active and in good standing?</li>
+                  <li>Any delinquency, penalty, or filing gap?</li>
+                  <li>Is the property actually in city, ETJ, or county-only territory?</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Operating Checklist</div>
+              <h2>Fredericksburg City-Limit STR Rules</h2>
+            </div>
+            <p class="section-summary">
+              Use this section only if the parcel is in city limits.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <h3 class="card-title">Permit / Compliance</h3>
+              <ul class="checklist">
+                <li>Verify active STR permit number</li>
+                <li>Verify expiration / renewal date</li>
+                <li>Verify inspection status</li>
+                <li>Check any complaint history if obtainable</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Operations Rules Baseline</h3>
+              <ul class="checklist">
+                <li>Occupancy: 2 per bedroom + 2 additional persons, max 12 unless special exception</li>
+                <li>Parking: 1 on-site space per bedroom</li>
+                <li>Quiet hours: 10pm-7am in residential zones</li>
+                <li>Local responsible party required</li>
+                <li>Listing must include permit number and operating information</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Physical Safety Baseline</h3>
+              <ul class="checklist">
+                <li>smoke alarms</li>
+                <li>CO detector where applicable</li>
+                <li>fire extinguisher per floor</li>
+                <li>legal egress from bedrooms</li>
+                <li>pool/spa compliance if applicable</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Physical Diligence</div>
+              <h2>ETJ / County Priority Checklist</h2>
+            </div>
+            <p class="section-summary">
+              These items matter most for ETJ and unincorporated county deals.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <h3 class="card-title">Septic / OSSF</h3>
+              <ul class="checklist">
+                <li>Confirm existing septic type and capacity</li>
+                <li>Ask whether added bedrooms or second-key use changes septic assumptions</li>
+                <li>Verify permits / drawings / inspections if available</li>
+                <li>Check whether planned additions or use intensification require OSSF action</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Floodplain / Engineering</h3>
+              <ul class="checklist">
+                <li>Check floodplain map and county engineering review triggers</li>
+                <li>Determine whether development/fill/grading/paving/additions trigger county engineering review</li>
+                <li>Confirm whether a Development Permit Determination Form is needed</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Access / ROW / Driveway</h3>
+              <ul class="checklist">
+                <li>Confirm legal and practical driveway access</li>
+                <li>Verify whether any new or modified access needs county ROW permit</li>
+                <li>If TxDOT frontage exists, verify TxDOT driveway permitting implications</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Addressing</h3>
+              <ul class="checklist">
+                <li>Confirm official address assignment</li>
+                <li>If multiple dwellings or rentable structures exist, confirm whether separate structures require separate addressing treatment</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Utilities / Infrastructure</h3>
+              <ul class="checklist">
+                <li>electric service adequacy</li>
+                <li>water source / well / utility reliability</li>
+                <li>internet quality for STR operations</li>
+                <li>HVAC capacity, especially if adding conditioned space</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Diligence Emphasis Shift</h3>
+              <p class="muted">
+                In ETJ and county-only scenarios, the checklist moves away from city STR permitting and toward site, utility, access, and use constraints.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Underwriting</div>
+              <h2>STR Thesis and Comp Stack</h2>
+            </div>
+            <p class="section-summary">
+              Revenue work starts with the actual operating configuration, then climbs a comp hierarchy before falling back to long-term rental survivability.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3 class="card-title">Revenue Thesis</h3>
+              <ul class="checklist">
+                <li>Is the property a plain house, a two-door STR, or a compound-style asset?</li>
+                <li>Can the suite/casita/add-on truly function as a second rentable key?</li>
+                <li>Is the bedroom count being marketed today understating the real post-improvement value?</li>
+              </ul>
+
+              <div class="callout info">
+                <strong>LTR Fallback</strong>
+                <ul class="checklist">
+                  <li>What is the long-term rental floor if STR underperforms?</li>
+                  <li>Does the property fail or survive as LTR?</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Comp Hierarchy</h3>
+              <div class="ladder">
+                <div class="ladder-item">
+                  <div class="ladder-rank">1</div>
+                  <div>same street</div>
+                </div>
+                <div class="ladder-item">
+                  <div class="ladder-rank">2</div>
+                  <div>same neighborhood / HOA</div>
+                </div>
+                <div class="ladder-item">
+                  <div class="ladder-rank">3</div>
+                  <div>within 1 mile</div>
+                </div>
+                <div class="ladder-item">
+                  <div class="ladder-rank">4</div>
+                  <div>within 5 miles</div>
+                </div>
+                <div class="ladder-item">
+                  <div class="ladder-rank">5</div>
+                  <div>expand only with justification</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="callout warn">
+            <strong>Revenue Comp Questions</strong>
+            <ul class="checklist">
+              <li>Are there public comps for main house + cottage?</li>
+              <li>Are there public comps for duplex/two-key operation?</li>
+              <li>Are there public comps for rent-separately-or-together model?</li>
+              <li>What ADR and occupancy are realistic for main house?</li>
+              <li>What ADR and occupancy are realistic for guest suite/casita?</li>
+              <li>What ADR and occupancy are realistic for full property booking?</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Appraisal Risk</div>
+              <h2>Added Bedrooms and Enclosed Porches</h2>
+            </div>
+            <p class="section-summary">
+              Before assuming value creation, confirm the added area will read correctly as usable, permitted, conditioned, and appraisable space.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3 class="card-title">Before Assuming Value Creation, Confirm</h3>
+              <ul class="checklist">
+                <li>Will the added area count as true livable square footage?</li>
+                <li>Is it permitted or permit-able?</li>
+                <li>Is it conditioned?</li>
+                <li>Are ceiling height and finish level acceptable?</li>
+                <li>Are legal egress requirements met for bedrooms?</li>
+                <li>Will appraiser likely treat it as GLA vs enclosed porch/sunroom/non-GLA?</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Questions for Any Enclosure Plan</h3>
+              <ul class="checklist">
+                <li>Is the space already under roof?</li>
+                <li>Is the floor already suitable to remain?</li>
+                <li>How many new exterior walls are actually needed?</li>
+                <li>Will mini-split sizing support the added space?</li>
+                <li>Does the enclosure improve ADR enough to justify capex?</li>
+                <li>Does it hurt porch charm or overall guest experience?</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Financing</div>
+              <h2>Direct DSCR vs Bridge-to-DSCR</h2>
+            </div>
+            <p class="section-summary">
+              The checklist frames financing as a two-lane screen based on current guest-readiness, revenue support, and the amount of value-add required before stabilization.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3 class="card-title">Direct DSCR May Fit When</h3>
+              <ul class="checklist">
+                <li>property is already guest-ready</li>
+                <li>STR revenue is supportable now</li>
+                <li>repairs are mostly light cleanup / furnishing / merchandising</li>
+                <li>lender accepts STR underwriting at needed leverage</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Bridge Then DSCR May Fit When</h3>
+              <ul class="checklist">
+                <li>value-add is needed to create second-key or added-bedroom thesis</li>
+                <li>property needs capex before it can support target ADR</li>
+                <li>porch enclosure / suite separation / light rehab is part of the plan</li>
+                <li>refinance after stabilization improves hold economics</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="callout info">
+            <strong>Always Verify</strong>
+            <div class="rule-pill-row">
+              <span class="rule-pill">rate</span>
+              <span class="rule-pill">LTV / LTC</span>
+              <span class="rule-pill">minimum DSCR</span>
+              <span class="rule-pill">prepay</span>
+              <span class="rule-pill">reserves</span>
+              <span class="rule-pill">STR eligibility</span>
+              <span class="rule-pill">seasoning / cash-out / refi rules</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Risk Controls</div>
+              <h2>Deal Killers and Minimum Workflow</h2>
+            </div>
+            <p class="section-summary">
+              The checklist identifies the failure points that should force a pass or material reprice, then sets the minimum workflow to run on every new deal.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3 class="card-title">Pass or Materially Reprice If Any of These Fail</h3>
+              <div class="callout risk">
+                <ul class="checklist">
+                  <li>wrong jurisdiction assumption</li>
+                  <li>no viable STR path for intended use</li>
+                  <li>septic cannot support bedroom/use plan</li>
+                  <li>access/ROW issue blocks intended operation</li>
+                  <li>floodplain/development issue makes expansion impractical</li>
+                  <li>guest suite is not operationally distinct enough to support second-key pricing</li>
+                  <li>appraisal treatment of added area is weak</li>
+                  <li>DSCR only works under heroic ADR assumptions</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Minimum Workflow for Every New Deal</h3>
+              <div class="workflow">
+                <div class="workflow-item">
+                  <div class="workflow-number">1</div>
+                  <div>classify parcel: city vs ETJ vs county-only</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">2</div>
+                  <div>classify HOT burden</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">3</div>
+                  <div>verify STR permit burden</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">4</div>
+                  <div>verify septic / utility / access / floodplain risks</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">5</div>
+                  <div>verify second-key or expansion thesis</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">6</div>
+                  <div>build comp stack</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">7</div>
+                  <div>underwrite wholesale / flip / LTR / STR</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">8</div>
+                  <div>run DSCR and bridge-to-DSCR options</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">9</div>
+                  <div>identify appraisal-risk items</div>
+                </div>
+                <div class="workflow-item">
+                  <div class="workflow-number">10</div>
+                  <div>issue recommendation: pass / pursue / offer</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-content">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Source Appendix</div>
+              <h2>Official Source Set to Reuse</h2>
+            </div>
+            <p class="section-summary">
+              The checklist ends with the official source set and the baseline conclusion that should carry forward into future Fredericksburg and Gillespie County acquisition work.
+            </p>
+          </div>
+
+          <div class="source-grid">
+            <article class="source-card">
+              <span class="source-tag">City Sources</span>
+              <ul class="source-list">
+                <li><a href="https://www.fbgtx.org/845/Short-Term-Rentals" target="_blank" rel="noopener noreferrer">City STR hub</a></li>
+                <li><a href="https://www.fbgtx.org/1116/Short-Term-Rental-Permit---Frequently-As" target="_blank" rel="noopener noreferrer">City STR FAQ</a></li>
+                <li><a href="https://www.fbgtx.org/487/Hotel-Occupancy-Taxes" target="_blank" rel="noopener noreferrer">City HOT</a></li>
+                <li><a href="https://www.fbgtx.org/1115/Hotel-Occupancy-Tax---Frequently-Asked-Q" target="_blank" rel="noopener noreferrer">City HOT FAQ</a></li>
+                <li><a href="https://library.municode.com/tx/fredericksburg/codes/code_of_ordinances?nodeId=PTIICOOR_CH20OFMIPR_ARTVIISHRMRE" target="_blank" rel="noopener noreferrer">City ordinance</a></li>
+                <li><a href="https://cityoffbg.maps.arcgis.com/apps/webappviewer/index.html?id=db2d270e1a74452488b2a1cf69af4e4c" target="_blank" rel="noopener noreferrer">City / ETJ map</a></li>
+              </ul>
+            </article>
+
+            <article class="source-card">
+              <span class="source-tag">County Sources</span>
+              <ul class="source-list">
+                <li><a href="https://www.gillespiecounty.gov/1248/County-Hotel-Occupancy-Tax-Payments" target="_blank" rel="noopener noreferrer">Gillespie County HOT</a></li>
+                <li><a href="https://www.gillespiecounty.gov/1287/Sanitation-On-Site-Sewage-Facilities-Dep" target="_blank" rel="noopener noreferrer">Gillespie County OSSF</a></li>
+                <li><a href="https://www.gillespiecounty.gov/1198/Engineering-Department" target="_blank" rel="noopener noreferrer">Gillespie County Engineering</a></li>
+                <li><a href="https://esearch.gillespiecad.org/" target="_blank" rel="noopener noreferrer">Gillespie CAD search</a></li>
+              </ul>
+
+              <div class="callout info">
+                <strong>Current Baseline Conclusion</strong>
+                <ul class="checklist">
+                  <li>City limit = permit + annual inspection + city/state HOT</li>
+                  <li>ETJ = currently no city STR permit per city guidance, but still city/state HOT</li>
+                  <li>County outside city/ETJ = no countywide STR permit page found, but county/state HOT applies</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      Single-file hosted report compiled from the source checklist only.
+    </div>
+  </main>
+</body>
+</html>
